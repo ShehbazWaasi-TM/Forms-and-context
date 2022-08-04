@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import Form from 'react-bootstrap/Form';
 
 // Maintaning State
 
-const Form = () => {
+const Forms = () => {
   const [fname, setfName] = useState("");
   const [lname, setlName] = useState("");
   const [email, setEmail] = useState("");
@@ -90,19 +91,20 @@ const Form = () => {
   //   handling Submit button
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("firstName:", fname);
     console.log("lastName:", lname);
     console.log("Email:", email);
     console.log("SecurityQuestion:", ques);
     console.log("SecurityAnswer:", ans);
     console.log("Bio:", bio);
-    e.preventDefault();
   };
 
   return (
     <div className="form-container">
-      <form action="" className="form-control" onSubmit={handleSubmit}>
-        <label>
+      <form style={{"backgroundColor":"aliceblue"}} action="" className="form-control" onSubmit={handleSubmit}>
+        <h3>Controlled Form</h3>
+        <Form.Label>
           First Name:{" "}
           <span>
             <input
@@ -116,7 +118,7 @@ const Form = () => {
               onKeyUp={handleInput}
             />
           </span>
-        </label>
+        </Form.Label>
         <br />
         <p>{err.firstNameErr}</p>
 
@@ -220,4 +222,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Forms;
