@@ -5,7 +5,13 @@ import Grandchild from './Grandchild'
 const Child = () => {
     let providercount = useContext(UserContext)
     const buttonClicked = () => {
-        providercount.setCounter(providercount.counter+1)
+        if (providercount.counter === 10)
+        {
+          providercount.setCounter(0)
+        }
+        else{
+          providercount.setCounter(providercount.counter+1)
+        }
     }
   return (
     <div>
